@@ -18,11 +18,6 @@ poetry config http-basic.nio \
     "$(aws ssm get-parameter --name '/nio/default/pypi/username' --with-decryption | jq -r '.Parameter.Value')" \
     "$(aws ssm get-parameter --name '/nio/default/pypi/password' --with-decryption | jq -r '.Parameter.Value')"
 
-# install aws-cdk if npm installed
-if command -v npm &>/dev/null; then
-    npm install -g aws-cdk
-fi
-
 # Allow the Python setup to be bypassed
 if [ ! -z "${NO_JGT_SETUP+x}" ]; then
     echo "Bypassing JGT setup"
