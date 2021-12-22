@@ -20,7 +20,7 @@ poetry config http-basic.nio \
 
 # install aws-cdk if npm installed
 if command -v npm &>/dev/null; then
-    npm install -g aws-cdk@1.x
+    npm install -g aws-cdk
 fi
 
 # Allow the Python setup to be bypassed
