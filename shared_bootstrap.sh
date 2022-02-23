@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Ensure AWSCLIv2 is installed and accessible
 AWS_VERSION=$(aws --version | awk '{ print $1 }' | awk -F'/' '{ print $NF }')
