@@ -14,16 +14,16 @@ fi
 aws configure list >/dev/null 2>&1 || aws sso login
 
 # Setup private PyPI repository
-poetry config repositories.nio "$(aws ssm get-parameter --name '/nio/production/pypi/url' --with-decryption | jq -r '.Parameter.Value')"
+poetry config repositories.nio "$(aws ssm get-parameter --name ' /nio/production/pypi/url' --with-decryption | jq -r '.Parameter.Value')"
 poetry config http-basic.nio \
-    "$(aws ssm get-parameter --name '/nio/default/pypi/username' --with-decryption | jq -r '.Parameter.Value')" \
-    "$(aws ssm get-parameter --name '/nio/default/pypi/password' --with-decryption | jq -r '.Parameter.Value')"
+    "$(aws ssm get-parameter --name ' /nio/default/pypi/username' --with-decryption | jq -r '.Parameter.Value')" \
+    "$(aws ssm get-parameter --name ' /nio/default/pypi/password' --with-decryption | jq -r '.Parameter.Value')"
 
 # Setup private development PyPI repository
-poetry config repositories.nio-dev "$(aws ssm get-parameter --name '/nio/development/pypi/url' --with-decryption | jq -r '.Parameter.Value')"
+poetry config repositories.nio-dev "$(aws ssm get-parameter --name ' /nio/development/pypi/url' --with-decryption | jq -r '.Parameter.Value')"
 poetry config http-basic.nio-dev \
-    "$(aws ssm get-parameter --name '/nio/default/pypi/username' --with-decryption | jq -r '.Parameter.Value')" \
-    "$(aws ssm get-parameter --name '/nio/default/pypi/password' --with-decryption | jq -r '.Parameter.Value')"
+    "$(aws ssm get-parameter --name ' /nio/default/pypi/username' --with-decryption | jq -r '.Parameter.Value')" \
+    "$(aws ssm get-parameter --name ' /nio/default/pypi/password' --with-decryption | jq -r '.Parameter.Value')"
 
 # Allow the Python setup to be bypassed
 if [ ! -z "${NO_JGT_SETUP+x}" ]; then
