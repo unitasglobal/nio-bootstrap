@@ -6,8 +6,8 @@ Shared bootstrapping script used across NIO-team projects
 Needed Parameters
 -----------------
 
-In order to successfully deploy this stack to a new account,
-the following System Manager parameters needs to exist:
+In order to successfully deploy this stack to a new AWS account,
+the following AWS System Manager parameters need to exist:
 
 ==========================  =============================
 Name                        Description
