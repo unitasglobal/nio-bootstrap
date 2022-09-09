@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -eo pipefail
 
 # Ensure AWSCLIv2 is installed and accessible
 AWS_VERSION=$(aws --version | awk '{ print $1 }' | awk -F'/' '{ print $NF }')
