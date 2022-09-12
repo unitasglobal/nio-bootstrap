@@ -14,6 +14,7 @@ fi
 aws configure list >/dev/null 2>&1 || aws sso login
 
 # Setup private PyPI repository
+set -o pipefail
 poetry config repositories.nio "$(aws ssm get-parameter --name ' /nio/production/pypi/url' --with-decryption | jq -r '.Parameter.Value')"
 poetry config http-basic.nio \
     "$(aws ssm get-parameter --name ' /nio/default/pypi/username' --with-decryption | jq -r '.Parameter.Value')" \
